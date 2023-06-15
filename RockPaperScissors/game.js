@@ -11,15 +11,21 @@ let valuePlayer;
 btRock.addEventListener("click", (e) =>{
   e.preventDefault()
   valuePlayer = "Rock"
+  getComputerChoice();
+  playRound(valuePlayer, valueComputer);
 })
 btPaper.addEventListener("click", (e) =>{
   e.preventDefault()
   valuePlayer = "Paper"
+  getComputerChoice();
+  playRound(valuePlayer, valueComputer);
 })
-  btScissors.addEventListener("click", (e) =>{
-    e.preventDefault()
-    valuePlayer = "Scissors"
-  })
+btScissors.addEventListener("click", (e) =>{
+  e.preventDefault()
+  valuePlayer = "Scissors"
+  getComputerChoice();
+playRound(valuePlayer, valueComputer);
+})
 
 // getting the computer selection for the round
 function getComputerChoice (){
@@ -55,4 +61,28 @@ function playRound(playerSelection, computerSelection) {
       computerWin()
     }
   }
+  if(computerSelection === "Paper"){
+    if (playerSelection == "Paper"){
+      tie ()
+    }
+    else if (playerSelection == "Scissors"){
+      playerWin ()
+    }
+    else {
+      computerWin()
+    }
+  }
+  if(computerSelection === "Scissors"){
+    if (playerSelection == "Scissors"){
+      tie ()
+    }
+    else if (playerSelection == "Rock"){
+      playerWin ()
+    }
+    else {
+      computerWin()
+    }
+  }
 }
+
+playRound(valuePlayer,valueComputer)
