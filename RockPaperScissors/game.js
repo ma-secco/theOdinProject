@@ -1,21 +1,24 @@
-const btRock = document.querySelector(".rock")
-const btPaper = document.querySelector(".paper")
-const btScissors = document.querySelector(".scissors")
+const btRock = document.querySelector("#rock")
+const btPaper = document.querySelector("#paper")
+const btScissors = document.querySelector("#scissors")
 
 let valueComputer;
-let valuePlayer = () => {
-  if (btRock.addEventListener("click")) {
-    valuePlayer = "Rock";
-  }
-  else if (btPaper.addEventListener("click")) {
-    valuePlayer = "Paper";
-  }
-  else {
-    btScissors.addEventListener("click", () =>{
-      valuePlayer = "Scissors"
-    })
-  }
-}
+let valuePlayer;
+
+btRock.addEventListener("click", (e) =>{
+  e.preventDefault()
+  valuePlayer = "Rock"
+})
+btPaper.addEventListener("click", (e) =>{
+  e.preventDefault()
+  valuePlayer = "Paper"
+})
+  btScissors.addEventListener("click", (e) =>{
+    e.preventDefault()
+    valuePlayer = "Scissors"
+  })
+
+
 
 console.log(valuePlayer)
 
