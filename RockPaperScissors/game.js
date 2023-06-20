@@ -24,7 +24,7 @@ btScissors.addEventListener("click", (e) =>{
   e.preventDefault()
   valuePlayer = "Scissors"
   getComputerChoice();
-playRound(valuePlayer, valueComputer);
+  playRound(valuePlayer, valueComputer);
 })
 
 // getting the computer selection for the round
@@ -43,7 +43,7 @@ function tie (){
 function playerWin (){
   resp.innerText = `You Win! ${valuePlayer} beats ${valueComputer}`
 }
-function computerWinWin (){
+function computerWin (){
   resp.innerText = `You Lose! ${valueComputer} beats ${valuePlayer}`
 }
 
