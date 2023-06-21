@@ -10,16 +10,16 @@ let valuePlayer;
 let playerScore = 0;
 let computerScore = 0;
 
-function game(){
+
   // event listener in the buttons
   btRock.addEventListener("click", (e) =>{
-    e.preventDefault()
+   e.preventDefault()
     valuePlayer = "Rock"
     getComputerChoice();
     playRound(valuePlayer, valueComputer);
   })
   btPaper.addEventListener("click", (e) =>{
-    e.preventDefault()
+   e.preventDefault()
     valuePlayer = "Paper"
     getComputerChoice();
     playRound(valuePlayer, valueComputer);
@@ -29,12 +29,8 @@ function game(){
     valuePlayer = "Scissors"
     getComputerChoice();
     playRound(valuePlayer, valueComputer);
-  })
-  
-//change the score in each play 
-score.innerText = `Player score: ${playerScore}\n
-Computer score: ${computerScore}`
-}
+  })  
+
 
 
 // getting the computer selection for the round
@@ -60,7 +56,7 @@ function computerWin (){
 }
 
 
-// creating the function for each round
+// function display the results
 function playRound(playerSelection, computerSelection) {
   if (computerSelection === playerSelection) {
     tie ()
@@ -68,26 +64,37 @@ function playRound(playerSelection, computerSelection) {
   if(computerSelection === "Rock"){
     if (playerSelection == "Paper"){
       playerWin ()
+      playerScore++
     }
     else {
       computerWin()
+      computerScore++;
     }
   }
   if(computerSelection === "Paper"){
     if (playerSelection == "Scissors"){
       playerWin ()
+      playerScore++
     }
     else {
       computerWin()
+      computerScore++;
     }
   }
   if(computerSelection === "Scissors"){
    if (playerSelection == "Rock"){
-      playerWin ()
+    playerWin ()
+    playerScore++
     }
     else {
       computerWin()
+      computerScore++;
     }
   }
 }
 
+function game(){
+  //change the score in each play 
+score.innerText = `Player score: ${playerScore}\n
+Computer score: ${computerScore}`  
+}
