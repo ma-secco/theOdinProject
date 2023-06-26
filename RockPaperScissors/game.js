@@ -11,27 +11,29 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-  // event listener in the buttons
-  btRock.addEventListener("click", (e) =>{
-   e.preventDefault()
-    valuePlayer = "Rock"
-    getComputerChoice();
-    playRound(valuePlayer, valueComputer);
-  })
-  btPaper.addEventListener("click", (e) =>{
-   e.preventDefault()
-    valuePlayer = "Paper"
-    getComputerChoice();
-    playRound(valuePlayer, valueComputer);
-  })
-  btScissors.addEventListener("click", (e) =>{
-    e.preventDefault()
-    valuePlayer = "Scissors"
-    getComputerChoice();
-    playRound(valuePlayer, valueComputer);
-  })  
+
+// event listener in the buttons
+btRock.addEventListener("click", (e) =>{
+  e.preventDefault()
+  valuePlayer = "Rock"
+  game()
+})
+btPaper.addEventListener("click", (e) =>{
+  e.preventDefault()
+  valuePlayer = "Paper"
+  game()
+})
+btScissors.addEventListener("click", (e) =>{
+  e.preventDefault()
+  valuePlayer = "Scissors"
+  game()
+})  
 
 
+function game(){
+  getComputerChoice();
+  playRound(valuePlayer, valueComputer);
+}
 
 // getting the computer selection for the round
 function getComputerChoice (){
@@ -49,10 +51,12 @@ function tie (){
 function playerWin (){
   resp.innerText = `You Win! ${valuePlayer} beats ${valueComputer}`
   playerScore++;
+  score.innerText = `Player score: ${playerScore}\nComputer score: ${computerScore}`  
 }
 function computerWin (){
   resp.innerText = `You Lose! ${valueComputer} beats ${valuePlayer}`
   computerScore++;
+  score.innerText = `Player score: ${playerScore}\nComputer score: ${computerScore}`  
 }
 
 
@@ -64,37 +68,26 @@ function playRound(playerSelection, computerSelection) {
   if(computerSelection === "Rock"){
     if (playerSelection == "Paper"){
       playerWin ()
-      playerScore++
     }
     else {
       computerWin()
-      computerScore++;
     }
   }
   if(computerSelection === "Paper"){
     if (playerSelection == "Scissors"){
       playerWin ()
-      playerScore++
     }
     else {
       computerWin()
-      computerScore++;
     }
   }
   if(computerSelection === "Scissors"){
    if (playerSelection == "Rock"){
     playerWin ()
-    playerScore++
     }
     else {
       computerWin()
-      computerScore++;
     }
   }
 }
 
-function game(){
-  //change the score in each play 
-score.innerText = `Player score: ${playerScore}\n
-Computer score: ${computerScore}`  
-}
