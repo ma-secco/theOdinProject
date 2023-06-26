@@ -28,5 +28,41 @@ function getComputerChoice (){
 }
 
 function playRound(playerSelection, computerSelection) {
-  
+  if (computerSelection === playerSelection) {
+    tie ()
+  }
+  if(computerSelection === "Rock"){
+    if (playerSelection == "Paper"){
+      playerWin ()
+    }
+    else {
+      computerWin()
+    }
+  }
+  if(computerSelection === "Paper"){
+    if (playerSelection == "Scissors"){
+      playerWin ()
+    }
+    else {
+      computerWin()
+    }
+  }
+  if(computerSelection === "Scissors"){
+   if (playerSelection == "Rock"){
+    playerWin ()
+    }
+    else {
+      computerWin()
+    }
+  }
+}
+
+
+function endGame () {
+ if (playerScore > computerScore){
+  resp.innerText = `Congratulations! You won the game`
+ }
+ else {
+  resp.innerText = `You lost! The computer won the game`
+ }
 }
