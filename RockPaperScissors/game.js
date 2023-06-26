@@ -31,8 +31,12 @@ btScissors.addEventListener("click", (e) =>{
 
 
 function game(){
-  getComputerChoice();
-  playRound(valuePlayer, valueComputer);
+  if (playerScore == 5 ||computerScore == 5){
+    endGame()
+  }
+  else {
+    getComputerChoice();
+    playRound(valuePlayer, valueComputer);}
 }
 
 // getting the computer selection for the round
@@ -91,3 +95,12 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+
+function endGame () {
+ if (playerScore > computerScore){
+  resp.innerText = `Congratulations! You won the game`
+ }
+ else {
+  resp.innerText = `You lost! The computer won the game`
+ }
+}
